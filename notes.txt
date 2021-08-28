@@ -1,0 +1,3 @@
+I think tokopedia implemented some measure against web scraping/automation, so I had to set the headless to false in order for the script to work(please check the file: 'headless_error.png')
+
+Also the item description doesn't exists on the tokopedia products list page, and I can't access the page detail using automation(please check: 'navigation_error.jpg'), so I took the liberty of changing the item description to product link
