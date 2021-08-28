@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/melonsoda20/brick-test/issues"
   },
-  "homepage": "https://github.com/melonsoda20/brick-test#readme"
+  "homepage": "https://github.com/melonsoda20/brick-test#readme",
+  "dependencies": {
+    "puppeteer": "^10.2.0"
+  }
 }
