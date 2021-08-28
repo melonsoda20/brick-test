@@ -1,0 +1,19 @@
+{
+  "name": "brick-test",
+  "version": "1.0.0",
+  "description": "test project for brick",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melonsoda20/brick-test.git"
+  },
+  "author": "Teddy",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melonsoda20/brick-test/issues"
+  },
+  "homepage": "https://github.com/melonsoda20/brick-test#readme"
+}
