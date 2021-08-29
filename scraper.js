@@ -2,6 +2,8 @@ const puppeteer = require('puppeteer');
 const ObjectsToCsv = require('objects-to-csv');
 
 const pageURL  = 'https://www.tokopedia.com/p/handphone-tablet/handphone?page=1&rt=4,5&ob=5'; 
+const itemContainerClass = 'css-bk6tzz e1nlzfl3';
+const maxItemsLength = 100;
 
 puppeteer.launch({headless: false}).then(async browser => {
     const tokpedTop100PhoneURL  = getPageURL(); 
@@ -12,12 +14,15 @@ puppeteer.launch({headless: false}).then(async browser => {
         waitUntil: ['load', 'networkidle2'],
         timeout: 10000,
     });
+    
+    await page.exposeFunction('getContainerClass', getContainerClass);
+    await page.exposeFunction('getItemLimit', getItemLimit);
 
     await autoScroll(page);
     
     const selectedItems = await page.evaluate(async() => {
-        const itemContainerClass = 'css-bk6tzz e1nlzfl3';
-        const maxItemsLength = 100;
+        const itemContainerClass = await getContainerClass();
+        const maxItemsLength = await getItemLimit();
 
         const itemsLink = [];
 
@@ -67,3 +72,11 @@ const autoScroll = async(page) => {
 const getPageURL = function(){
     return pageURL;
 };
+
+const getContainerClass = function(){
+    return itemContainerClass;
+}
+
+const getItemLimit = function(){
+    return maxItemsLength;
+}
